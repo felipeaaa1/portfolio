@@ -1,59 +1,79 @@
-# FelipealvesPortfolio
+# Felipe Alves — Portfólio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
+Portfólio pessoal desenvolvido em Angular para apresentar experiência profissional, tecnologias, formação e certificações em uma página única e responsiva.
 
-## Development server
+## Tecnologias principais
 
-To start a local development server, run:
+- Angular 22
+- TypeScript
+- SCSS
+- Componentes standalone
+- IntersectionObserver
+- Vitest
+- Vercel como hospedagem planejada
 
-```bash
-ng serve
-```
+## Funcionalidades
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Página única responsiva
+- Sidebar social adaptada para desktop e dispositivos móveis
+- Hero animado com efeito typewriter
+- Fundo decorativo com partículas
+- Timeline profissional
+- Animação progressiva de entrada das seções
+- Suporte a `prefers-reduced-motion`
+- Navegação por âncoras internas
 
-## Code scaffolding
+## Desenvolvimento local
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Instale as dependências:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Inicie o servidor de desenvolvimento:
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+O servidor fica disponível em `http://localhost:4200/`. O script também permite acesso pela rede local por utilizar `--host 0.0.0.0`.
 
-For end-to-end (e2e) testing, run:
+## Build de produção
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Os arquivos estáticos do navegador são gerados em:
 
-## Additional Resources
+```text
+dist/felipealves-portfolio/browser
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Testes
+
+```bash
+npm test
+```
+
+Os testes unitários são executados com Vitest por meio do builder de testes do Angular.
+
+## Estrutura principal
+
+```text
+src/
+├── app/
+│   ├── components/   # Hero, sidebar e seções profissionais
+│   ├── directives/   # Reveal progressivo com IntersectionObserver
+│   └── app.*         # Composição e layout principal
+├── index.html        # Metadados e documento base
+└── styles.scss       # Estilos globais mínimos
+public/               # Favicon, robots.txt e sitemap.xml
+```
+
+## Publicação
+
+A hospedagem planejada é a Vercel, usando `npm run build` e o diretório de saída `dist/felipealves-portfolio/browser`.
+
+Domínio final planejado: [felipealves.com](https://felipealves.com/).

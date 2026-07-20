@@ -19,4 +19,16 @@ describe('SocialSidebar', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render secure external social links', () => {
+    const links = fixture.nativeElement.querySelectorAll('.social-sidebar__link') as NodeListOf<HTMLAnchorElement>;
+
+    expect(links).toHaveLength(3);
+    for (const link of links) {
+      expect(link.target).toBe('_blank');
+      expect(link.rel).toContain('noopener');
+      expect(link.rel).toContain('noreferrer');
+      expect(link.getAttribute('aria-label')).toBeTruthy();
+    }
+  });
 });

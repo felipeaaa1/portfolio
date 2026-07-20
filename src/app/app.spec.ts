@@ -32,4 +32,14 @@ describe('App', () => {
     expect(compiled.querySelector('app-education')).toBeTruthy();
     expect(compiled.querySelector('app-certifications')).toBeTruthy();
   });
+
+  it('should expose one page heading and a skip link to the main content', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelectorAll('h1')).toHaveLength(1);
+    expect(compiled.querySelector('.skip-link')?.getAttribute('href')).toBe('#conteudo');
+    expect(compiled.querySelector('main')?.id).toBe('conteudo');
+  });
 });

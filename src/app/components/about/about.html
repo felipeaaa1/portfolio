@@ -1,0 +1,12 @@
+<section class="about section" id="sobre" aria-labelledby="about-title" appRevealOnScroll>
+  <header class="section__header">
+    <p class="section__eyebrow">Perfil</p>
+    <h2 id="about-title">Sobre mim</h2>
+  </header>
+
+  <div class="about__content">
+    @for (paragraph of paragraphs; track paragraph) {
+      <p>{{ paragraph }}</p>
+    }
+  </div>
+</section>

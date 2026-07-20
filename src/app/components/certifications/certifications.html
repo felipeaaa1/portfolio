@@ -1,0 +1,20 @@
+<section class="certifications section" id="certificacoes" aria-labelledby="certifications-title">
+  <header class="section__header" appRevealOnScroll>
+    <p class="section__eyebrow">Aprendizado</p>
+    <h2 id="certifications-title">Certificações</h2>
+  </header>
+
+  <ul class="certifications__list">
+    @for (certification of certifications; track certification.id) {
+      <li appRevealOnScroll>
+        <article>
+          <span class="certifications__mark" aria-hidden="true">✓</span>
+          <div>
+            <h3>{{ certification.title }}</h3>
+            <p>{{ certification.issuer }}</p>
+          </div>
+        </article>
+      </li>
+    }
+  </ul>
+</section>

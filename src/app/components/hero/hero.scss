@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.hero {
+  width: min(100%, 64rem);
+  min-height: min(48rem, 88dvh);
+  margin-inline: auto;
+  padding-block: clamp(5rem, 12vw, 9rem);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  scroll-margin-top: 2rem;
+}
+
+.hero__eyebrow {
+  margin: 0 0 0.75rem;
+  color: #38bdf8;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hero__title {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.hero__subtitle {
+  margin: 1.5rem 0 0;
+  color: #cbd5e1;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+.hero__description {
+  max-width: 46rem;
+  margin: 1.5rem 0 0;
+  color: #94a3b8;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+}

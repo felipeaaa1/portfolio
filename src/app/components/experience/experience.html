@@ -1,0 +1,43 @@
+<section class="experience section" id="experiencia" aria-labelledby="experience-title">
+  <header class="section__header" appRevealOnScroll>
+    <p class="section__eyebrow">Trajetória</p>
+    <h2 id="experience-title">Experiência profissional</h2>
+    <p class="section__description">
+      Uma trajetória entre sistemas corporativos, automação, integrações e desenvolvimento full stack.
+    </p>
+  </header>
+
+  <ol class="timeline">
+    @for (experience of experiences; track experience.id) {
+      <li class="timeline__item" appRevealOnScroll>
+        <span class="timeline__marker" aria-hidden="true"></span>
+        <article class="timeline__card">
+          <p class="timeline__period">
+            <time [attr.datetime]="experience.startDate">{{ experience.startLabel }}</time>
+            <span aria-hidden="true">—</span>
+            @if (experience.endDate) {
+              <time [attr.datetime]="experience.endDate">{{ experience.endLabel }}</time>
+            } @else {
+              <span>{{ experience.endLabel }}</span>
+            }
+          </p>
+
+          <h3>{{ experience.role }}</h3>
+          <p class="timeline__company">{{ experience.company }}</p>
+
+          <ul class="timeline__description">
+            @for (item of experience.description; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+
+          <ul class="chips" aria-label="Tecnologias utilizadas">
+            @for (technology of experience.technologies; track technology) {
+              <li>{{ technology }}</li>
+            }
+          </ul>
+        </article>
+      </li>
+    }
+  </ol>
+</section>

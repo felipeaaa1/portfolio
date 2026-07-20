@@ -1,0 +1,28 @@
+<section class="education section" id="formacao" aria-labelledby="education-title" appRevealOnScroll>
+  <header class="section__header">
+    <p class="section__eyebrow">Formação</p>
+    <h2 id="education-title">Formação acadêmica</h2>
+  </header>
+
+  <div class="education__list">
+    @for (item of education; track item.id) {
+      <article class="education__card">
+        <div class="education__meta">
+          <p class="education__period">
+            <time [attr.datetime]="item.startYear">{{ item.startYear }}</time>
+            <span aria-hidden="true">—</span>
+            <time [attr.datetime]="item.endYear">{{ item.endYear }}</time>
+          </p>
+          @if (item.status) {
+            <span class="education__status">{{ item.status }}</span>
+          }
+        </div>
+        <h3>{{ item.degree }}</h3>
+        <p>{{ item.institution }} — {{ item.institutionShortName }}</p>
+        @if (item.details) {
+          <p class="education__details">{{ item.details }}</p>
+        }
+      </article>
+    }
+  </div>
+</section>

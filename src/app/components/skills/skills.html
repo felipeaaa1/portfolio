@@ -1,0 +1,22 @@
+<section class="skills section" id="tecnologias" aria-labelledby="skills-title">
+  <header class="section__header" appRevealOnScroll>
+    <p class="section__eyebrow">Stack</p>
+    <h2 id="skills-title">Tecnologias</h2>
+    <p class="section__description">
+      Ferramentas com as quais tive contato profissional, acadêmico ou em estudos, sem atribuir níveis subjetivos de domínio.
+    </p>
+  </header>
+
+  <div class="skills__grid">
+    @for (category of categories; track category.id) {
+      <article class="skills__card" appRevealOnScroll>
+        <h3>{{ category.title }}</h3>
+        <ul>
+          @for (skill of category.skills; track skill) {
+            <li>{{ skill }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

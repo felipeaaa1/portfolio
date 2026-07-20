@@ -1,0 +1,83 @@
+:host {
+  display: block;
+}
+
+.section {
+  width: min(100%, 64rem);
+  margin-inline: auto;
+  padding-block: clamp(4rem, 9vw, 7rem);
+  scroll-margin-top: 2rem;
+}
+
+.section__header {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+.section__eyebrow {
+  margin: 0 0 0.5rem;
+  color: #38bdf8;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.04em;
+}
+
+.section__description {
+  margin: 1rem 0 0;
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skills__card {
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: rgba(15, 23, 42, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 1rem;
+}
+
+h3 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: 1.05rem;
+}
+
+ul {
+  display: flex;
+  margin: 1rem 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+li {
+  max-width: 100%;
+  padding: 0.4rem 0.7rem;
+  overflow-wrap: anywhere;
+  color: #bae6fd;
+  background: rgba(14, 165, 233, 0.09);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 640px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -74,6 +74,7 @@
 }
 
 .hero__title {
+  font-family: "Times New Roman", Times, serif;
   margin: 0;
   color: #f8fafc;
   font-size: clamp(3rem, 8vw, 7rem);
@@ -82,16 +83,28 @@
 }
 
 .hero__typewriter {
+  position: relative;
   display: inline-block;
-  width: 0;
   max-width: 100%;
-  overflow: hidden;
-  border-right: 0.06em solid #38bdf8;
   white-space: nowrap;
 
-  animation:
-    typewriter 2s steps(13, end) 250ms forwards,
-    typewriter-caret 700ms step-end infinite;
+  > span {
+    display: inline-block;
+    animation: typewriter 2s steps(13, end) 250ms both;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0.06em;
+    background: #38bdf8;
+    content: "";
+    animation:
+      typewriter-caret-position 2s steps(13, end) 250ms forwards,
+      typewriter-caret-blink 700ms step-end infinite;
+  }
 }
 
 .hero__subtitle {
@@ -150,11 +163,16 @@
 }
 
 @keyframes typewriter {
-  to { width: 10.2ch; }
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0); }
 }
 
-@keyframes typewriter-caret {
-  50% { border-color: transparent; }
+@keyframes typewriter-caret-position {
+  to { left: 100%; }
+}
+
+@keyframes typewriter-caret-blink {
+  50% { opacity: 0; }
 }
 
 @keyframes particle-drift {
@@ -183,9 +201,13 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero__typewriter {
-    width: auto;
-    border-right: 0;
-    animation: none;
+    > span {
+      animation: none;
+    }
+
+    &::after {
+      content: none;
+    }
   }
 
   .hero__backdrop::after,

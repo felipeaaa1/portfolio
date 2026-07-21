@@ -1,4 +1,4 @@
-# Felipe Alves — Portfólio
+# Felipe Arnaud — Portfólio
 
 Portfólio pessoal desenvolvido em Angular para apresentar experiência profissional, tecnologias, formação e certificações em uma página única e responsiva.
 
@@ -48,7 +48,7 @@ npm run build
 Os arquivos estáticos do navegador são gerados em:
 
 ```text
-dist/felipealves-portfolio/browser
+dist/felipearnaud-portfolio/browser
 ```
 
 ## Testes
@@ -74,6 +74,6 @@ public/               # Favicon, robots.txt e sitemap.xml
 
 ## Publicação
 
-A hospedagem planejada é a Vercel, usando `npm run build` e o diretório de saída `dist/felipealves-portfolio/browser`.
+A hospedagem planejada é a Vercel, usando `npm run build` e o diretório de saída `dist/felipearnaud-portfolio/browser`.
 
-Domínio final planejado: [felipealves.com](https://felipealves.com/).
+Domínio final planejado: [felipearnaud.com](https://felipearnaud.com/).

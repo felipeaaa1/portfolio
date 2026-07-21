@@ -90,7 +90,7 @@
   white-space: nowrap;
 
   animation:
-    typewriter 1.8s steps(12, end) 250ms forwards,
+    typewriter 2s steps(13, end) 250ms forwards,
     typewriter-caret 700ms step-end infinite;
 }
 
@@ -150,7 +150,7 @@
 }
 
 @keyframes typewriter {
-  to { width: 9ch; }
+  to { width: 10.2ch; }
 }
 
 @keyframes typewriter-caret {

@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "felipealves-portfolio": {
+    "felipearnaud-portfolio": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -59,10 +59,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "felipealves-portfolio:build:production"
+              "buildTarget": "felipearnaud-portfolio:build:production"
             },
             "development": {
-              "buildTarget": "felipealves-portfolio:build:development"
+              "buildTarget": "felipearnaud-portfolio:build:development"
             }
           },
           "defaultConfiguration": "development"

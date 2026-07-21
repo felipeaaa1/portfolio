@@ -18,19 +18,19 @@ export class SocialSidebar {
       id: 'linkedin',
       label: 'LinkedIn',
       url: 'https://linkedin.com/in/felipe-alves-3223191bb',
-      ariaLabel: 'Acessar o LinkedIn de Felipe Alves'
+      ariaLabel: 'Acessar o LinkedIn de Felipe Arnaud'
     },
     {
       id: 'github',
       label: 'GitHub',
       url: 'https://github.com/felipeaaa1',
-      ariaLabel: 'Acessar o GitHub de Felipe Alves'
+      ariaLabel: 'Acessar o GitHub de Felipe Arnaud'
     },
     {
       id: 'instagram',
       label: 'Instagram',
       url: 'https://www.instagram.com/arnaud_felipe/',
-      ariaLabel: 'Acessar o Instagram de Felipe Alves'
+      ariaLabel: 'Acessar o Instagram de Felipe Arnaud'
     }
   ];
 }

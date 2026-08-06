@@ -31,6 +31,12 @@ export class SocialSidebar {
       label: 'Instagram',
       url: 'https://www.instagram.com/arnaud_felipe/',
       ariaLabel: 'Acessar o Instagram de Felipe Arnaud'
+    },
+    {
+      id: 'whatsapp',
+      label: 'WhatsApp',
+      url: 'https://wa.me/5585997527107',
+      ariaLabel: 'Conversar com Felipe Arnaud pelo WhatsApp'
     }
   ];
 }

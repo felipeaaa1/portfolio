@@ -109,6 +109,10 @@
   stroke: url("#instagram-outline");
 }
 
+.social-sidebar__icon--whatsapp {
+  stroke: #25d366;
+}
+
 .social-sidebar__link:hover .social-sidebar__icon,
 .social-sidebar__link:focus-visible .social-sidebar__icon {
   opacity: 1;

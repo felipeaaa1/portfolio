@@ -37,6 +37,6 @@ describe('SocialSidebar', () => {
       'a[title="WhatsApp"]'
     ) as HTMLAnchorElement;
 
-    expect(whatsappLink.href).toBe('https://wa.me/5585997527107');
+    expect(whatsappLink.href).toBe('https://wa.me/5585997527107?text=Caraca%20que%20portf%C3%B3lio%20top.');
   });
 });

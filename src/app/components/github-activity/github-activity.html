@@ -1,0 +1,96 @@
+<section class="github-activity section" id="github" aria-labelledby="github-title">
+  <header class="section__header" appRevealOnScroll>
+    <p class="section__eyebrow">Código em movimento</p>
+    <h2 id="github-title">Atividade no GitHub</h2>
+    <p class="section__description">
+      Contribuições públicas do último ano, atualizadas automaticamente.
+    </p>
+  </header>
+
+  <article #card class="github-card" appRevealOnScroll [attr.aria-busy]="loading()">
+    <div class="github-card__header">
+      <a
+        class="github-card__account"
+        [href]="'https://github.com/' + account"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M15 21v-3.5c.03-1-.35-1.96-1.05-2.66 3.1-.35 6.35-1.52 6.35-6.86a5.36 5.36 0 0 0-1.43-3.72A5 5 0 0 0 18.73.58S17.6.22 15 2a12.8 12.8 0 0 0-6 0C6.4.22 5.27.58 5.27.58a5 5 0 0 0-.14 3.68A5.36 5.36 0 0 0 3.7 8c0 5.33 3.25 6.5 6.35 6.86A3.63 3.63 0 0 0 9 17.5V21"
+          />
+        </svg>
+        @{{ account }}
+      </a>
+
+      @if (!loading() && !error()) {
+        <span>{{ totalContributions() }} contribuições</span>
+      }
+    </div>
+
+    @if (loading()) {
+      <div class="github-card__skeleton" aria-label="Carregando contribuições"></div>
+    } @else if (error()) {
+      <p class="github-card__message">
+        Não foi possível carregar as contribuições agora.
+        <a [href]="'https://github.com/' + account" target="_blank" rel="noopener noreferrer">
+          Ver perfil no GitHub
+        </a>
+      </p>
+    } @else {
+      <div class="github-card__graph-region">
+        <div
+          class="github-card__scroll"
+          tabindex="0"
+          aria-label="Gráfico de contribuições do último ano; role horizontalmente para explorar"
+          (scroll)="repositionTooltip()"
+        >
+          <div class="github-card__graph">
+            @for (contribution of contributions(); track contribution.date) {
+              <span
+                [class]="'contribution-cell contribution-cell--level-' + contribution.level"
+                tabindex="0"
+                [attr.aria-label]="contributionLabel(contribution)"
+                [attr.aria-describedby]="
+                  isTooltipActive(contribution) ? 'github-contribution-tooltip' : null
+                "
+                (mouseenter)="showFromMouse(contribution, $event)"
+                (mouseleave)="leaveCell()"
+                (focus)="showFromFocus(contribution, $event)"
+                (blur)="blurCell()"
+                (keydown.escape)="closeWithEscape($event)"
+              ></span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="github-card__legend" aria-label="Legenda de intensidade das contribuições">
+        <span>Menos</span>
+        @for (level of [0, 1, 2, 3, 4]; track level) {
+          <span [class]="'contribution-cell contribution-cell--level-' + level"></span>
+        }
+        <span>Mais</span>
+      </div>
+    }
+
+    @if (activeContribution(); as contribution) {
+      <div
+        #tooltip
+        id="github-contribution-tooltip"
+        class="github-tooltip"
+        [class.github-tooltip--below]="tooltipPosition().placement === 'below'"
+        [class.github-tooltip--align-left]="tooltipPosition().horizontal === 'left'"
+        [class.github-tooltip--align-right]="tooltipPosition().horizontal === 'right'"
+        [style.left.px]="tooltipPosition().left"
+        [style.top.px]="tooltipPosition().top"
+        role="tooltip"
+        (mouseenter)="enterTooltip()"
+        (mouseleave)="leaveTooltip()"
+        (keydown.escape)="closeWithEscape($event)"
+      >
+        {{ contributionLabel(contribution) }}
+      </div>
+    }
+  </article>
+</section>

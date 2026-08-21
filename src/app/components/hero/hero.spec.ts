@@ -11,12 +11,17 @@ describe('Hero', () => {
     expect(fixture.nativeElement.querySelector('h1')?.textContent).toContain('Felipe Arnaud');
   });
 
-  it('should link the scroll indicator to the About section', async () => {
+  it('should link the scroll indicator to the Technologies section', async () => {
     await TestBed.configureTestingModule({ imports: [Hero] }).compileComponents();
     const fixture = TestBed.createComponent(Hero);
     await fixture.whenStable();
 
-    expect(fixture.nativeElement.querySelector('.hero__scroll-indicator')?.getAttribute('href')).toBe('#sobre');
+    const scrollIndicator = fixture.nativeElement.querySelector(
+      '.hero__scroll-indicator',
+    ) as HTMLAnchorElement;
+
+    expect(scrollIndicator.getAttribute('href')).toBe('#tecnologias');
+    expect(scrollIndicator.getAttribute('aria-label')).toBe('Ir para a seção Tecnologias');
   });
 
   it('should keep the full name in the DOM and hide particles from assistive technology', async () => {

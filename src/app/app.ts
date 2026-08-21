@@ -5,6 +5,7 @@ import { About } from './components/about/about';
 import { Certifications } from './components/certifications/certifications';
 import { Education } from './components/education/education';
 import { Experience } from './components/experience/experience';
+import { GithubActivity } from './components/github-activity/github-activity';
 import { Hero } from './components/hero/hero';
 import { Skills } from './components/skills/skills';
 import { SocialSidebar } from './components/social-sidebar/social-sidebar';
@@ -17,11 +18,12 @@ import { SocialSidebar } from './components/social-sidebar/social-sidebar';
     Hero,
     About,
     Experience,
+    GithubActivity,
     Skills,
     Education,
-    Certifications
+    Certifications,
   ],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {}

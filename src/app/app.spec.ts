@@ -1,12 +1,22 @@
 import { TestBed } from '@angular/core/testing';
+import { afterEach, vi } from 'vitest';
 import { App } from './app';
 
 describe('App', () => {
   beforeEach(async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({ contributions: [] }),
+      }),
+    );
     await TestBed.configureTestingModule({
       imports: [App],
     }).compileComponents();
   });
+
+  afterEach(() => vi.unstubAllGlobals());
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(App);
@@ -28,6 +38,7 @@ describe('App', () => {
 
     expect(compiled.querySelector('app-about')).toBeTruthy();
     expect(compiled.querySelector('app-experience')).toBeTruthy();
+    expect(compiled.querySelector('app-github-activity')).toBeTruthy();
     expect(compiled.querySelector('app-skills')).toBeTruthy();
     expect(compiled.querySelector('app-education')).toBeTruthy();
     expect(compiled.querySelector('app-certifications')).toBeTruthy();

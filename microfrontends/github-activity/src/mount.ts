@@ -1,54 +1,47 @@
-import type { GithubActivityOptions } from './contract';
-import { loadGithubContributions } from './github-contributions-client';
+  import { createGithubActivityView } from './github-activity-view';
+  import type { GithubActivityOptions } from './contract';
+  import { loadGithubContributions } from './github-contributions-client';
 
-export function mount(
+  export function mount(
     container: HTMLElement,
     options: GithubActivityOptions,
-): () => void {
+  ): () => void {
     const abortController = new AbortController();
     const account = options.username.trim().replace(/^@/, '');
 
-    const root = document.createElement('section');
+    const view = createGithubActivityView(account);
 
-    root.className = 'github-activity';
-    root.setAttribute('aria-busy', 'true');
-    root.textContent = 'Carregando contribuições...';
-
-    container.append(root);
+    container.append(view.root);
 
     void loadGithubContributions(
-        account,
-        abortController.signal,
+      account,
+      abortController.signal,
     )
-        .then((contributions) => {
-            if (abortController.signal.aborted) {
-                return;
-            }
+      .then((contributions) => {
+        if (abortController.signal.aborted) {
+          return;
+        }
 
-            const total = contributions.reduce(
-                (sum, contribution) => sum + contribution.count,
-                0,
-            );
+        const total = contributions.reduce(
+          (sum, contribution) => sum + contribution.count,
+          0,
+        );
 
-            root.setAttribute('aria-busy', 'false');
-            root.textContent =
-                `@${account} — ${total} contribuições no último ano.`;
-        })
-        .catch((error: unknown) => {
-            if (
-                error instanceof DOMException &&
-                error.name === 'AbortError'
-            ) {
-                return;
-            }
+        view.showSuccess(total);
+      })
+      .catch((error: unknown) => {
+        if (
+          error instanceof DOMException &&
+          error.name === 'AbortError'
+        ) {
+          return;
+        }
 
-            root.setAttribute('aria-busy', 'false');
-            root.textContent =
-                'Não foi possível carregar as contribuições agora.';
-        });
+        view.showError();
+      });
 
     return () => {
-        abortController.abort();
-        root.remove();
+      abortController.abort();
+      view.root.remove();
     };
-}
+  }

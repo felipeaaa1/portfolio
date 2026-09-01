@@ -79,10 +79,18 @@ describe('mount', () => {
     });
 
     await vi.waitFor(() => {
-      expect(container.textContent).toContain(
-        '@felipeaaa1 — 5 contribuições no último ano.',
-      );
+      expect(
+        container.querySelector('.github-card__total')
+          ?.textContent,
+      ).toBe('5 contribuições');
+
+      expect(
+        container.querySelectorAll(
+          '.github-card__graph .contribution-cell',
+        ),
+      ).toHaveLength(2);
     });
+
 
     expect(
       container

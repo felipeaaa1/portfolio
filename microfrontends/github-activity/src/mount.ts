@@ -10,8 +10,17 @@ export function mount(
   const account = options.username.trim().replace(/^@/, '');
 
   const view = createGithubActivityView(account);
+  const host = document.createElement('div');
 
-  container.append(view.root);
+  host.className = 'github-activity-host';
+
+  const shadowRoot = host.attachShadow({
+    mode: 'open',
+  });
+
+  shadowRoot.append(view.root);
+
+  container.replaceChildren(host);
 
   void loadGithubContributions(
     account,
@@ -37,6 +46,6 @@ export function mount(
 
   return () => {
     abortController.abort();
-    view.root.remove();
+    container.replaceChildren();
   };
 }

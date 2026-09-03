@@ -20,6 +20,20 @@ const loadContributionsMock = vi.mocked(
   loadGithubContributions,
 );
 
+function getShadowRoot(
+  container: HTMLElement,
+): ShadowRoot {
+  const shadowRoot = container.firstElementChild?.shadowRoot;
+
+  if (!shadowRoot) {
+    throw new Error(
+      'Shadow root do GitHub Activity não encontrado.',
+    );
+  }
+
+  return shadowRoot;
+}
+
 describe('mount', () => {
   beforeEach(() => {
     loadContributionsMock.mockReset();
@@ -40,14 +54,16 @@ describe('mount', () => {
       username: 'felipeaaa1',
     });
 
+    const shadowRoot = getShadowRoot(container);
+
     expect(
-      container.querySelector(
+      shadowRoot.querySelector(
         '[aria-label="Carregando contribuições"]',
       ),
     ).not.toBeNull();
 
     expect(
-      container.querySelector('.github-activity'),
+      shadowRoot.querySelector('.github-activity'),
     ).not.toBeNull();
 
     expect(loadContributionsMock).toHaveBeenCalledWith(
@@ -78,14 +94,16 @@ describe('mount', () => {
       username: '@felipeaaa1',
     });
 
+    const shadowRoot = getShadowRoot(container);
+
     await vi.waitFor(() => {
       expect(
-        container.querySelector('.github-card__total')
+        shadowRoot.querySelector('.github-card__total')
           ?.textContent,
       ).toBe('5 contribuições');
 
       expect(
-        container.querySelectorAll(
+        shadowRoot.querySelectorAll(
           '.github-card__graph .contribution-cell',
         ),
       ).toHaveLength(2);
@@ -93,7 +111,7 @@ describe('mount', () => {
 
 
     expect(
-      container
+      shadowRoot
         .querySelector('.github-card')
         ?.getAttribute('aria-busy'),
     ).toBe('false');
@@ -112,8 +130,10 @@ describe('mount', () => {
       username: 'felipeaaa1',
     });
 
+    const shadowRoot = getShadowRoot(container);
+
     await vi.waitFor(() => {
-      expect(container.textContent).toContain(
+      expect(shadowRoot.textContent).toContain(
         'Não foi possível carregar as contribuições agora.',
       );
     });
@@ -131,6 +151,8 @@ describe('mount', () => {
     const unmount = mount(container, {
       username: 'felipeaaa1',
     });
+
+    const shadowRoot = getShadowRoot(container);
 
     const signal = loadContributionsMock.mock.calls[0]?.[1];
 

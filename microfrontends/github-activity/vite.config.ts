@@ -1,19 +1,31 @@
-  import { federation } from '@module-federation/vite';
-  import { defineConfig } from 'vite';
+import { federation } from '@module-federation/vite';
+import { defineConfig } from 'vite';
 
-  export default defineConfig({
-    plugins: [
-      federation({
-        name: 'githubActivity',
-        filename: 'remoteEntry.js',
-        exposes: {
-          './GithubActivity': './src/index.ts',
-        },
-      }),
-    ],
+export default defineConfig({
+  base: 'http://localhost:4173/',
 
-    build: {
-      target: 'esnext',
-    },
-  });
-  
+  server: {
+    port: 4173,
+    strictPort: true,
+    origin: 'http://localhost:4173',
+    cors: true,
+  },
+
+  plugins: [
+    federation({
+      name: 'github_activity',
+      filename: 'remoteEntry.js',
+      manifest: true,
+      exposes: {
+  './mount': './src/index.ts',
+      },
+
+        shared: {},
+
+    }),
+  ],
+
+  build: {
+  target: 'chrome89',
+  },
+});

@@ -1,17 +1,30 @@
-  <!doctype html>
-  <html lang="pt-BR">
-    <head>
-      <meta charset="UTF-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-      />
-      <title>GitHub Activity</title>
-    </head>
+<!doctype html>
+<html lang="pt-BR">
 
-    <body>
-      <div id="app"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Activity</title>
+</head>
 
-      <script type="module" src="/src/index.ts"></script>
-    </body>
-  </html>
+<body>
+  <div id="app"></div>
+
+  <script type="module">
+    import { mount } from '/src/index.ts';
+
+    const container = document.querySelector('#app');
+
+    if (!(container instanceof HTMLElement)) {
+      throw new Error(
+        'Container do GitHub Activity não encontrado.',
+      );
+    }
+
+    mount(container, {
+      username: 'felipeaaa1',
+    });
+  </script>
+</body>
+
+</html>

@@ -16,6 +16,10 @@ vi.mock('./github-contributions-client', () => ({
   loadGithubContributions: vi.fn(),
 }));
 
+vi.mock('./github-activity.css?inline', () => ({
+  default: '.github-card {}',
+}));
+
 const loadContributionsMock = vi.mocked(
   loadGithubContributions,
 );
@@ -55,6 +59,10 @@ describe('mount', () => {
     });
 
     const shadowRoot = getShadowRoot(container);
+
+    expect(
+      shadowRoot.querySelector('style')?.textContent,
+    ).toContain('.github-card');
 
     expect(
       shadowRoot.querySelector(

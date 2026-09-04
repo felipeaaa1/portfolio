@@ -1,6 +1,7 @@
 import { createGithubActivityView } from './github-activity-view';
 import type { GithubActivityOptions } from './contract';
 import { loadGithubContributions } from './github-contributions-client';
+import githubActivityStyles from './github-activity.css?inline';
 
 export function mount(
   container: HTMLElement,
@@ -18,7 +19,10 @@ export function mount(
     mode: 'open',
   });
 
-  shadowRoot.append(view.root);
+  const style = document.createElement('style');
+  style.textContent = githubActivityStyles;
+
+  shadowRoot.append(style, view.root);
 
   container.replaceChildren(host);
 
@@ -46,6 +50,7 @@ export function mount(
 
   return () => {
     abortController.abort();
+    view.destroy();
     container.replaceChildren();
   };
 }

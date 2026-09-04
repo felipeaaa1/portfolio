@@ -1,14 +1,24 @@
 {
-    "compilerOptions": {
-      "target": "ES2022",
-      "useDefineForClassFields": true,
-      "module": "ESNext",
-      "moduleResolution": "Bundler",
-      "lib": ["ES2022", "DOM", "DOM.Iterable"],
-      "strict": true,
-      "noEmit": true,
-      "skipLibCheck": true,
-      "types": ["vitest/globals"]
-    },
-    "include": ["src/**/*.ts", "vite.config.ts"]
-  }
+  "compilerOptions": {
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": [
+      "vite/client",
+      "vitest/globals"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "vite.config.ts"
+  ]
+}

@@ -14,9 +14,10 @@ describe('Experience', () => {
     const element = await render();
     const cards = Array.from(element.querySelectorAll<HTMLElement>('.timeline__card'));
 
-    expect(cards).toHaveLength(5);
-    expect(cards[0]?.textContent).toContain('TXN/Infox');
-    expect(cards[4]?.textContent).toContain('GSH Gestão Hospitalar');
+    expect(cards).toHaveLength(6);
+    expect(cards[0]?.textContent).toContain('Avanade');
+    expect(cards[1]?.textContent).toContain('TXN/Infox');
+    expect(cards[5]?.textContent).toContain('GSH Gestão Hospitalar');
   });
 
   it('should render roles, companies, technologies and time elements', async () => {

@@ -2,12 +2,34 @@ import { ProfessionalExperience } from './professional-experience';
 
 export const PROFESSIONAL_EXPERIENCES: readonly ProfessionalExperience[] = [
   {
+    id: 'avanade',
+    role: 'Engenheiro de Software',
+    company: 'Avanade',
+    startDate: '2026-09',
+    startLabel: 'setembro de 2026',
+    endLabel: 'presente',
+    description: [
+      'Atuação no setor financeiro, em sistemas de pagamentos, no desenvolvimento de microsserviços back-end.',
+      'Desenvolvimento de serviços em Java e Spring Boot com arquitetura hexagonal.',
+      'Trabalho com mensageria e persistência em bancos NoSQL.',
+      'Criação de testes automatizados com Node.js, Playwright, BDD e Gherkin.',
+      'Escrita de testes unitários e de componente, com validação automatizada de regras de arquitetura.',
+      'Documentação de APIs com OpenAPI e versionamento com Git.'
+    ],
+    technologies: [
+      'Java', 'Spring Boot', 'Microsserviços', 'Arquitetura Hexagonal', 'Mensageria',
+      'NoSQL', 'REST APIs', 'OpenAPI', 'Node.js', 'Playwright', 'BDD', 'Gherkin',
+      'Testes Automatizados', 'Git'
+    ]
+  },
+  {
     id: 'txn-infox',
     role: 'Engenheiro de Software',
     company: 'TXN/Infox',
     startDate: '2025-02',
     startLabel: 'fevereiro de 2025',
-    endLabel: 'presente',
+    endDate: '2026-09',
+    endLabel: 'setembro de 2026',
     description: [
       'Manutenção e evolução do PJe, sistema judicial de grande porte.',
       'Atuação em aplicações legadas utilizando Java 8, JBoss Seam, JSF, RichFaces e Hibernate.',

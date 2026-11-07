@@ -1,8 +1,16 @@
 # Felipe Arnaud — Portfólio
 
-Portfólio pessoal desenvolvido em Angular para apresentar experiência profissional, tecnologias, formação e certificações em uma página única e responsiva.
+Portfólio pessoal desenvolvido em Angular para apresentar o perfil profissional de Felipe Arnaud, engenheiro de software com foco em back-end: experiência, tecnologias, formação e certificações em uma página única e responsiva.
 
-## Tecnologias principais
+## Perfil profissional
+
+- Engenheiro de Software com atuação em sistemas corporativos e no setor financeiro
+- Back-end com Java e Spring Boot, microsserviços, arquitetura hexagonal, APIs REST/OpenAPI, mensageria e bancos NoSQL e relacionais
+- Testes automatizados com Node.js, Playwright, BDD e Gherkin, além de testes unitários e de componente
+- Ferramentas: Git, Maven, Docker, GitHub Actions
+- Experiência anterior em Angular, aplicações legadas Java, automação de processos e low-code
+
+## Tecnologias do portfólio
 
 - Angular 22
 - TypeScript
@@ -18,7 +26,7 @@ Portfólio pessoal desenvolvido em Angular para apresentar experiência profissi
 - Sidebar social adaptada para desktop e dispositivos móveis
 - Hero animado com efeito typewriter
 - Fundo decorativo com partículas
-- Timeline profissional
+- Seções de habilidades, atividade no GitHub, experiência (timeline), sobre, formação e certificações
 - Animação progressiva de entrada das seções
 - Suporte a `prefers-reduced-motion`
 - Navegação por âncoras internas

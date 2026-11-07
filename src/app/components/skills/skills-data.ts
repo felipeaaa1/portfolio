@@ -4,7 +4,10 @@ export const SKILL_CATEGORIES: readonly SkillCategory[] = [
   {
     id: 'backend',
     title: 'Backend',
-    skills: ['Java', 'Spring Boot', 'JBoss Seam', 'REST APIs', 'Hibernate', 'MyBatis']
+    skills: [
+      'Java', 'Spring Boot', 'Microsserviços', 'Arquitetura Hexagonal', 'REST APIs',
+      'OpenAPI', 'Mensageria', 'JBoss Seam', 'Hibernate', 'MyBatis'
+    ]
   },
   {
     id: 'frontend',
@@ -14,7 +17,12 @@ export const SKILL_CATEGORIES: readonly SkillCategory[] = [
   {
     id: 'databases',
     title: 'Bancos de dados',
-    skills: ['PostgreSQL', 'Oracle', 'SQL', 'PL/SQL', 'H2']
+    skills: ['NoSQL', 'PostgreSQL', 'Oracle', 'SQL', 'PL/SQL', 'H2']
+  },
+  {
+    id: 'automated-testing',
+    title: 'Testes automatizados',
+    skills: ['Playwright', 'BDD', 'Gherkin', 'Node.js', 'Testes unitários', 'Testes de componente']
   },
   {
     id: 'devops-tools',

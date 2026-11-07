@@ -9,7 +9,7 @@ describe('Skills', () => {
     await fixture.whenStable();
     const element = fixture.nativeElement as HTMLElement;
 
-    expect(element.querySelectorAll('.skills__card')).toHaveLength(6);
+    expect(element.querySelectorAll('.skills__card')).toHaveLength(7);
     expect(element.textContent).toContain('Backend');
     expect(element.textContent).toContain('Angular');
     expect(element.textContent).toContain('PostgreSQL');

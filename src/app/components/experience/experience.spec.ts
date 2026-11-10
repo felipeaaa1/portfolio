@@ -15,7 +15,8 @@ describe('Experience', () => {
     const cards = Array.from(element.querySelectorAll<HTMLElement>('.timeline__card'));
 
     expect(cards).toHaveLength(6);
-    expect(cards[0]?.textContent).toContain('Avanade');
+    expect(cards[0]?.textContent).toContain('Avanade/Bradesco');
+    expect(cards[0]?.textContent).toContain('modernização');
     expect(cards[1]?.textContent).toContain('TXN/Infox');
     expect(cards[5]?.textContent).toContain('GSH Gestão Hospitalar');
   });

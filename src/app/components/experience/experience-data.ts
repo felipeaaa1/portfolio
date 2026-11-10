@@ -4,11 +4,12 @@ export const PROFESSIONAL_EXPERIENCES: readonly ProfessionalExperience[] = [
   {
     id: 'avanade',
     role: 'Engenheiro de Software',
-    company: 'Avanade',
+    company: 'Avanade/Bradesco',
     startDate: '2026-09',
     startLabel: 'setembro de 2026',
     endLabel: 'presente',
     description: [
+      'Atuação alocado no Bradesco, na equipe de modernização de sistemas.',
       'Atuação no setor financeiro, em sistemas de pagamentos, no desenvolvimento de microsserviços back-end.',
       'Desenvolvimento de serviços em Java e Spring Boot com arquitetura hexagonal.',
       'Trabalho com mensageria e persistência em bancos NoSQL.',
